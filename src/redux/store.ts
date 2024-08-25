@@ -1,4 +1,5 @@
 import authReducer from "@/redux/features/auth/auth.slice";
+import bookingReducer from "@/redux/features/booking/booking.slice";
 import { configureStore } from "@reduxjs/toolkit";
 import {
   FLUSH,
@@ -12,11 +13,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { api } from "./api/api";
-
-
-
-
-
 const persistConfig = {
   key: "root",
   storage,
@@ -28,6 +24,7 @@ const persistAuthReducer = persistReducer(
 const store = configureStore({
   reducer: {
     auth: persistAuthReducer,
+    booking:bookingReducer,
     [api.reducerPath]: api.reducer,
   },
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BaseQueryFn,
   createApi,
@@ -6,9 +7,10 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
 import Cookies from "js-cookie";
-import { RootState } from "../store";
 import { setState, setToken, setUser } from "../features/auth/auth.slice";
+import { RootState } from "../store";
 
+// export const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const baseUrl = "http://localhost:5000/api";
 
 const baseQuery = fetchBaseQuery({
@@ -68,6 +70,6 @@ export const api = createApi({
   reducerPath: "api",
 
   baseQuery: baseQueryWithRefreshToken,
-  tagTypes: ["user", "review", "service", "slots"],
+  tagTypes: ["user", "review", "service", "slots","booking"],
   endpoints: () => ({}),
 });

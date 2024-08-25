@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { MdArrowForwardIos } from "react-icons/md";
+import { Card, CardContent } from "../ui/card";
 
 export const RenderNewLine = ({ text }: { text: string }) => {
   return text.split("\n").map((line, index) => (

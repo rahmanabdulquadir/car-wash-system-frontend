@@ -1,9 +1,10 @@
+import HomeView from "@/view/HomeView";
 
 
 const Home = () => {
   return (
     <div>
-      This is home page
+     <HomeView/>
     </div>
   );
 };

@@ -62,91 +62,96 @@ const Navbar = () => {
       document.body.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [showSidebar, setShowSidebar]);
+
   return (
-    <header className="bg-[#0000002f]">
-      <div className="mx-auto layout_container sticky top-0 z-50">
-        <div className="flex  items-center justify-between py-3 ">
-          <Link to="/" className="flex items-center">
-            <img src="/images/logo.png" className="w-[100px]" />
-          </Link>
-          <div className="center w-fit gap-[15px]">
-            <NavigationMenu className="hidden md:flex">
-              <NavigationMenuList>
-                <div className="flex justify-end">
-                  <NavigationMenuItem>
-                    {navLinks.map(({ href, lebel }, i) => (
-                      <Link to={href} key={i + "navlink"}>
+    <header className=" bg-primaryMat/70 w-full">
+      <div className="nav_shape sticky top-0 z-20 border-b-primaryMat border-b-[1px]">
+        <div className="mx-auto layout_container">
+          <div className="flex  items-center justify-between py-2">
+            <Link to="/" className="flex items-center">
+              <img src="/images/logo.png" className="w-[100px]" />
+            </Link>
+            <div className="center w-fit gap-[15px] pt-[0] pb-[10px]">
+              <NavigationMenu className="hidden md:flex">
+                <NavigationMenuList>
+                  <div className="flex justify-end">
+                    <NavigationMenuItem>
+                      {navLinks.map(({ href, lebel }, i) => (
                         <NavigationMenuLink
+                          key={i}
+                          href={href}
                           className={
                             navigationMenuTriggerStyle() +
-                            " !bg-transparent !text-white font-[700]"
+                            " !bg-transparent !text-white font-[700] py-[0]"
                           }
                         >
                           {lebel}
                         </NavigationMenuLink>
-                      </Link>
-                    ))}
-                  </NavigationMenuItem>
-                </div>
-              </NavigationMenuList>
-            </NavigationMenu>
-            {user ? (
-              <Link
-                to={"/dashboard"}
-                className="text-[15px] text-white bg-primaryMat px-[10px] py-[5px] center rounded-full gap-[3px]"
-              >
-                <CiUser /> Dashboard
-              </Link>
-            ) : (
-              <Link
-                to={"/login"}
-                className="px-[18px] py-[5px] bg-primaryMat text-white rounded-full center gap-[10px]"
-              >
-                Login <CiUser />
-              </Link>
-            )}
-            <div className="center gap-[10px]">
-              <Link to={"/cart"} className="text-primaryTxt relative">
-                <LucideShoppingCart />
-                <span className="absolute text-[12px] top-[-14px] right-[-10px] text-white bg-primaryMat shadow-md px-[5px] py-[3px] rounded-[8px]">
-                  00
-                </span>
-              </Link>
-              <span className="font-[600] text-primaryMat">$0</span>
-            </div>
-            <button
-              onClick={() => setShowSidebar(!showSidebar)}
-              className="md:hidden flex menuBTn"
-            >
-              {showSidebar ? <X /> : <Menu />}
-            </button>
-          </div>
-
-          {/* sidebar */}
-          <div
-            className={`${
-              showSidebar
-                ? "w-[300px] border-r-[1px] px-[20px] pt-[20px]"
-                : "w-[0px]"
-            } bg-white left-0 top-0 fixed h-screen border-borderColor z-20 overflow-hidden myDrawer`}
-            style={{ transition: "0.3s" }}
-          >
-            <Link to="/" className="flex items-center">
-              <img src="/images/logo.png" className="w-[120px]" />
-            </Link>
-            <div className="w-full flex flex-col mt-[20px]">
-              {navLinks.map(({ href, lebel }) => (
-                <NavLink
-                  to={href}
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "bg-primaryMat text-white" : "text-primaryTxt"
-                    }  w-full px-[15px] py-[8px] rounded-[5px]`
-                  }
+                      ))}
+                    </NavigationMenuItem>
+                  </div>
+                </NavigationMenuList>
+              </NavigationMenu>
+              {user ? (
+                <Link
+                  to={"/dashboard"}
+                  className="text-[15px] text-white bg-primaryMat px-[10px] py-[5px] center rounded-full gap-[3px]"
                 >
-                  {lebel}
-                </NavLink>
-              ))}
+                  <CiUser /> Dashboard
+                </Link>
+              ) : (
+                <Link
+                  to={"/login"}
+                  className="px-[18px] py-[5px] bg-primaryMat text-white rounded-full center gap-[10px]"
+                >
+                  Login <CiUser />
+                </Link>
+              )}
+              <div className="center gap-[10px]">
+                <Link to={"/cart"} className="text-primaryTxt relative">
+                  <LucideShoppingCart />
+                  <span className="absolute text-[12px] top-[-14px] right-[-10px] text-white bg-primaryMat shadow-md px-[5px] py-[3px] rounded-[8px]">
+                    00
+                  </span>
+                </Link>
+                <span className="font-[600] text-primaryMat">$0</span>
+              </div>
+              <button
+                onClick={() => setShowSidebar(!showSidebar)}
+                className="md:hidden flex menuBTn"
+              >
+                {showSidebar ? <X /> : <Menu />}
+              </button>
+            </div>
+
+            {/* sidebar */}
+            <div
+              className={`${
+                showSidebar
+                  ? "w-[300px] border-r-[1px] px-[20px] pt-[20px]"
+                  : "w-[0px]"
+              } bg-white left-0 top-0 fixed h-screen border-borderColor z-20 overflow-hidden myDrawer`}
+              style={{ transition: "0.3s" }}
+            >
+              <Link to="/" className="flex items-center">
+                <img src="/images/logo.png" className="w-[120px]" />
+              </Link>
+              <div className="w-full flex flex-col mt-[20px]">
+                {navLinks.map(({ href, lebel }) => (
+                  <NavLink
+                    to={href}
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-primaryMat text-white"
+                          : "text-primaryTxt"
+                      }  w-full px-[15px] py-[8px] rounded-[5px]`
+                    }
+                  >
+                    {lebel}
+                  </NavLink>
+                ))}
+              </div>
             </div>
           </div>
         </div>

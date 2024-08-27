@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { MdArrowForwardIos } from "react-icons/md";
-import { Card, CardContent } from "../ui/card";
-
+import { Link } from "react-router-dom";
 export const RenderNewLine = ({ text }: { text: string }) => {
   return text.split("\n").map((line, index) => (
     <span key={index}>

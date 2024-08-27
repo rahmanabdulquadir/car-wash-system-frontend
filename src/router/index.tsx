@@ -1,5 +1,10 @@
 import AuthLayout from "@/components/Layouts/AuthLayout";
+import DashboardLayout from "@/components/Layouts/DashboardLayout";
 import MainLayout from "@/components/Layouts/MainLayout";
+import BookingManage from "@/pages/Admin/BookingManage";
+import ManageUser from "@/pages/Admin/ManageUser";
+import ServiceManage from "@/pages/Admin/ServiceManage";
+import SlotManage from "@/pages/Admin/SlotManage";
 import Booking from "@/pages/Booking/Booking";
 import Home from "@/pages/Home/Home";
 import Login from "@/pages/Login/Login";
@@ -52,22 +57,32 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/dashboard",
-  //   element: <DashboardLayout />,
-  //   children: [
-  //     {
-  //       index: true,
-  //       path: "admin",
-  //       element: <ServiceManage />,
-  //     },
-  //     {
-  //       index: true,
-  //       path: "register",
-  //       element: <Register />,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        path: "admin",
+        element: <ServiceManage />,
+      },
+      {
+        index: true,
+        path: "admin/manage-user",
+        element: <ManageUser />,
+      },
+      {
+        index: true,
+        path: "admin/manage-slots",
+        element: <SlotManage />,
+      },
+      {
+        index: true,
+        path: "admin/manage-bookings",
+        element: <BookingManage />,
+      },
+    ],
+  },
   {
     path: "*",
     element: <NotFound />,

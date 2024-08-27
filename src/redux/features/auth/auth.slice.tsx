@@ -1,5 +1,5 @@
 import { TUser } from "@/types/user";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type TAuthState = {
   user: TUser | null;
@@ -20,7 +20,7 @@ const userSlice = createSlice({
 
       state.isLoading = false;
     },
-    logout(state, action) {
+    logout() {
       return { user: null, isLoading: false, token: null };
     },
     setLoading(state, action: PayloadAction<boolean>) {
@@ -35,5 +35,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, logout, setLoading, setToken,setState } = userSlice.actions;
+export const { setUser, logout, setLoading, setToken, setState } =
+  userSlice.actions;
 export default userSlice.reducer;

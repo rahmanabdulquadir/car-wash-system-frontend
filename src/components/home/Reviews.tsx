@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Star } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { FormEvent, useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useCreateReviewMutation } from "@/redux/features/review/review.api";
 import { useAppSelector } from "@/redux/hooks";
+import { Star } from "lucide-react";
+import { FormEvent, useState } from "react";
+import { GoStar, GoStarFill } from "react-icons/go";
+import Rating from "react-rating";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import Rating from "react-rating";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Button } from "../ui/button";
-import { GoStar, GoStarFill } from "react-icons/go";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
-import { useCreateReviewMutation } from "@/redux/features/review/review.api";
-
 const RatingBar = ({
   rating,
   count,

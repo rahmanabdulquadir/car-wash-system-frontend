@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react";
-import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import SectionHeading from "../ui/sectionHeading";
+import SectionHeading from "@/components/ui/sectionHeading";
+import { serviceData } from "@/mock/service";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRightIcon, CheckIcon, ClockIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { serviceData } from "@/mock/service";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
 
 const FeaturedServices = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -95,7 +102,8 @@ const FeaturedServices = () => {
                     </li>
                   </ul>
                   <Button className="bg-red-500 text-white px-6 py-3 rounded-full">
-                   Add to Compare<ArrowRightIcon className="ml-2 h-5 w-5" />
+                    Add to Compare
+                    <ArrowRightIcon className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
               </div>

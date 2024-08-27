@@ -11,6 +11,7 @@ import { useFormik } from "formik";
 import { CalendarIcon } from "lucide-react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import * as Yup from "yup";
 
 const BookingView = () => {
@@ -28,23 +29,26 @@ const BookingView = () => {
   const { data } = useGetSlotByIdQuery(slot);
 
   const handleSubmit = async () => {
-    const payload: IBooking = {
-      service,
-      slot,
-      customer: user?._id || "",
-    };
-    const { data } = await createBooking(payload);
-    if (data && data.data?.payment_url) {
-      window.location.href = data.data.payment_url;
+    try {
+      const payload: IBooking = {
+        service,
+        slot,
+        customer: user?._id || "",
+      };
+      const { data } = await createBooking(payload);
+      if (data && data.data?.payment_url) {
+        window.location.href = data.data.payment_url;
+      }
+    } catch (error) {
+      console.log(error);
+
+      toast.error("something went while accessing this recourse");
     }
   };
   const formik = useFormik({
     initialValues: {
       name: `${user?.firstName || ""} ${user?.lastName || ""}`,
       email: user?.email || "",
-      time:
-        format(new Date(data?.data?.date || "11-11-2024"), "EEEE, MMMM d") +
-        ` at ${data?.data?.startTime}`,
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -73,14 +77,14 @@ const BookingView = () => {
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <div className="text-lg font-medium">
-                    {data?.data?.service?.name}
+                    {data?.data?.service.name}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    {data?.data?.service?.duration} minutes
+                    {data?.data?.service.duration} minutes
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-primaryMat">
-                  $ {data?.data?.service?.price}
+                  $ {data?.data?.service.price}
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -88,12 +92,12 @@ const BookingView = () => {
                 <div>
                   <div className="text-lg font-medium">
                     {format(
-                      new Date(data?.data?.date || "11-11-2024"),
+                      new Date(data?.data.date || "11-11-2024"),
                       "MMM dd yyyy"
                     )}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    {data?.data?.startTime} to {data?.data?.endTime}
+                    {data?.data.startTime} to {data?.data.endTime}
                   </div>
                 </div>
               </div>
@@ -121,7 +125,7 @@ const BookingView = () => {
                 placeholder="Enter your name"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.name}
+                value={data?.data.startTime}
                 className={
                   formik.touched.name && formik.errors.name
                     ? "border-red-500"
@@ -156,7 +160,12 @@ const BookingView = () => {
               <Input
                 id="time"
                 name="time"
-                value={formik.values.time}
+                value={
+                  format(
+                    new Date(data?.data?.date || "11-11-2024"),
+                    "EEEE, MMMM d"
+                  ) + ` at ${data?.data?.startTime || ""}`
+                }
                 readOnly
               />
             </div>

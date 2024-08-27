@@ -32,6 +32,18 @@ const serviceAPi = api.injectEndpoints({
       },
       providesTags: ["service"],
     }),
+    getServiceNames: builder.query<
+      { data: { name: string; _id: string }[] },
+      undefined
+    >({
+      query: () => {
+        return {
+          url: `/services/g/names`,
+          method: "GET",
+        };
+      },
+      providesTags: ["service"],
+    }),
     getServiceById: builder.query<{ data: IService }, string>({
       query: (id: string) => {
         return {
@@ -77,6 +89,7 @@ const serviceAPi = api.injectEndpoints({
 });
 export const {
   useGetSrvicesQuery,
+  useGetServiceNamesQuery,
   useGetServiceByIdQuery,
   useCreatServiceMutation,
   useDeletServiceMutation,

@@ -4,12 +4,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
-
 
 @layer components {
   .center {
     @apply flex justify-center items-center;
+  }
+
+  .layout_container {
+    @apply w-full mx-auto px-4 md:px-8 max-w-[1650px];
   }
 }
 
@@ -77,14 +79,33 @@
   }
 }
 
-/* @layer base {
+@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-} */
+}
+.nav_shape {
+  /* clip-path: polygon(0 0, 100% 0, 100% 76%, 0 99%); */
+  background: linear-gradient(#000000f1, #201010dc),
+    url("https://img.baba-blog.com/2024/02/definitive-guide-to-starting-car-wash-business_00.jpg?x-oss-process=style%2Flarge");
+
+  animation: moveBackground 100s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
 
 body {
   font-family: "Quicksand", sans-serif;
@@ -98,14 +119,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 }
 
-.react-photo-album--photo {
-  transition: 0.3s;
-}
-.react-photo-album--photo:hover {
-  transform: scale(1.03);
-  border-radius: 10px;
-}
-
 .footerBoxGradient {
   background: rgb(43, 164, 109);
   background: linear-gradient(
@@ -115,6 +128,19 @@ body {
   );
 }
 
+.smoothBar::-webkit-scrollbar {
+  width: 5px;
+  opacity: 1;
+}
+
+.smoothBar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.smoothBar:hover::-webkit-scrollbar-thumb {
+  background-color: #c2c2c2;
+}
 .PhoneInputInput {
   outline: none;
 }
@@ -125,15 +151,6 @@ body {
 
 .spacing {
   font-family: "Gruppo", sans-serif;
-}
-
-.layout_container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 2rem /* 32px */;
-  padding-left: 2rem /* 32px */;
-  max-width: 1650px;
 }
 
 .overlay {
@@ -181,4 +198,24 @@ body {
     );
   background-color: #131313;
   background-size: 20px 20px;
+}
+.skeleton {
+  background-color: #e0e0e0; /* Light grey color */
+  background-image: linear-gradient(
+    90deg,
+    #e0e0e0 0px,
+    #f0f0f0 40px,
+    #e0e0e0 80px
+  );
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
 }

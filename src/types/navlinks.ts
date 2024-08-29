@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
-import { CiUser } from "react-icons/ci";
-
+import { CiUser, CiViewList } from "react-icons/ci";
+import { GrServices } from "react-icons/gr";
 export interface NavItem {
   href: string;
   title: string;
@@ -10,34 +10,23 @@ export interface NavItem {
 export const adminLinks: NavItem[] = [
   {
     href: "/dashboard/admin",
-    Icon: CiUser,
+    Icon: GrServices,
     title: "Dashboard",
   },
   {
     href: "/dashboard/admin/manage-user",
     Icon: CiUser,
-    title: "user",
+    title: "Manage Users",
   },
   {
     href: "/dashboard/admin/manage-slots",
-    Icon: CiUser,
+    Icon: CiViewList,
 
-    title: "employee",
+    title: "Manage Slots",
   },
   {
-    href: "/dashboard/admin",
+    href: "/dashboard/admin/manage-bookings",
     Icon: CiUser,
-
-    title: "profile",
-  },
-  {
-    href: "/dashboard/kanban",
-    Icon: CiUser,
-    title: "kanban",
-  },
-  {
-    href: "/",
-    Icon: CiUser,
-    title: "login",
+    title: "Manage Bookings",
   },
 ];

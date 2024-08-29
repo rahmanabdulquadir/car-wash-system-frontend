@@ -1,15 +1,11 @@
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { useAppSelector } from "@/redux/hooks";
-import { LucideShoppingCart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
+import UpcomingSlotCountdown from "./UpcomingSlotCountdown";
+
 
 const navLinks = [
   {
@@ -22,7 +18,7 @@ const navLinks = [
   },
   {
     lebel: "Booking",
-    href: "/",
+    href: "/procced-booking",
   },
 ];
 
@@ -69,32 +65,27 @@ const Navbar = () => {
         <div className="mx-auto layout_container">
           <div className="flex  items-center justify-between py-2">
             <Link to="/" className="flex items-center">
-              <img src="/images/logo.png" className="w-[100px]" />
+              <img src="large.png" className="w-[100px]" />
             </Link>
             <div className="center w-fit gap-[15px] pt-[0] pb-[10px]">
-              <NavigationMenu className="hidden md:flex">
-                <NavigationMenuList>
-                  <div className="flex justify-end">
-                    <NavigationMenuItem>
-                      {navLinks.map(({ href, lebel }, i) => (
-                        <NavigationMenuLink
-                          key={i}
-                          href={href}
-                          className={
-                            navigationMenuTriggerStyle() +
-                            " !bg-transparent !text-white font-[700] py-[0]"
-                          }
-                        >
-                          {lebel}
-                        </NavigationMenuLink>
-                      ))}
-                    </NavigationMenuItem>
-                  </div>
-                </NavigationMenuList>
-              </NavigationMenu>
+              <div className="hidden lg:flex">
+                {navLinks.map(({ href, lebel }, i) => (
+                  <Link
+                    key={i}
+                    to={href}
+                    className={
+                      navigationMenuTriggerStyle() +
+                      " !bg-transparent !text-white font-[700] py-[0]"
+                    }
+                  >
+                    {lebel}
+                  </Link>
+                ))}
+              </div>
+
               {user ? (
                 <Link
-                  to={"/dashboard"}
+                  to={`/dashboard/${user.role == "admin" ? "admin" : "user"}`}
                   className="text-[15px] text-white bg-primaryMat px-[10px] py-[5px] center rounded-full gap-[3px]"
                 >
                   <CiUser /> Dashboard
@@ -107,15 +98,7 @@ const Navbar = () => {
                   Login <CiUser />
                 </Link>
               )}
-              <div className="center gap-[10px]">
-                <Link to={"/cart"} className="text-primaryTxt relative">
-                  <LucideShoppingCart />
-                  <span className="absolute text-[12px] top-[-14px] right-[-10px] text-white bg-primaryMat shadow-md px-[5px] py-[3px] rounded-[8px]">
-                    00
-                  </span>
-                </Link>
-                <span className="font-[600] text-primaryMat">$0</span>
-              </div>
+              <UpcomingSlotCountdown />
               <button
                 onClick={() => setShowSidebar(!showSidebar)}
                 className="md:hidden flex menuBTn"

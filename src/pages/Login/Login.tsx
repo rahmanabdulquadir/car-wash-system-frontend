@@ -70,7 +70,7 @@ const Login = () => {
       });
 
       redirect ? Cookies.remove("redirect") : "";
-      navigate(redirect || "/profile");
+      navigate(redirect || "/");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -89,7 +89,7 @@ const Login = () => {
           <FaArrowLeftLong /> Back To Home
         </Link>
         <div className="flex items-center justify-center gap-[50px]">
-          <div className="w-[500px] h-[450px]">
+          <div className="w-[500px] h-[450px] hidden lg:flex">
             <img
               src={"/images/washer.png"}
               alt="auth"

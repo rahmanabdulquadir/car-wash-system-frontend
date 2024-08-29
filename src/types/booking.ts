@@ -15,3 +15,11 @@ export interface IUserBooking {
   payment: string;
   status: "cancel" | "confirm";
 }
+
+
+export type TBookingCountDown={
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}

@@ -1,4 +1,4 @@
-export type TRole = "admin" | "user"
+export type TRole = "admin" | "user";
 export type TUser = {
   firstName: string;
   lastName: string;
@@ -8,6 +8,7 @@ export type TUser = {
   address: string;
   phone: string;
   createdAt: string;
+  role?: TRole;
   auth?: {
     role: TRole;
     email: string;

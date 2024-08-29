@@ -90,9 +90,9 @@
 .nav_shape {
   /* clip-path: polygon(0 0, 100% 0, 100% 76%, 0 99%); */
   background: linear-gradient(#000000f1, #201010dc),
-    url("https://img.baba-blog.com/2024/02/definitive-guide-to-starting-car-wash-business_00.jpg?x-oss-process=style%2Flarge");
+    url("https://s25180.pcdn.co/wp-content/uploads/2022/10/Carwash-quality.jpg");
 
-  animation: moveBackground 100s linear infinite;
+  animation: moveBackground 1000s linear infinite;
 }
 
 @keyframes moveBackground {
@@ -117,6 +117,10 @@ body {
 .griProductResponsive {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+.gridUser_responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(277px, 1fr));
 }
 
 .footerBoxGradient {
@@ -182,8 +186,8 @@ body {
 }
 
 .carbon_fiber {
-  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  background: linear-gradient(27deg, #242222 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #014d3d 5px, transparent 5px) 10px 0px,
     linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
     linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
     linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
@@ -194,7 +198,7 @@ body {
       transparent 50%,
       transparent 75%,
       #242424 75%,
-      #242424
+      /* #242424 */
     );
   background-color: #131313;
   background-size: 20px 20px;
@@ -218,4 +222,25 @@ body {
   100% {
     background-position: 200px 0;
   }
+}
+
+/* Define the shake animation */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+/* Class to apply the shake animation */
+.shake {
+  animation: shake 0.5s;
 }

@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -21,7 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+import { useGetServiceNamesQuery } from "@/redux/features/service/service.api";
+import { useCreateSlotMutation } from "@/redux/features/slots/slots.api";
 import { formateDateString } from "@/utils/dateFormat";
 import { format } from "date-fns";
 import { CalendarDaysIcon } from "lucide-react";
@@ -29,8 +30,6 @@ import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Calendar } from "../ui/calendar";
-import { useCreateSlotMutation } from "@/redux/features/slots/slots.api";
-import { useGetServiceNamesQuery } from "@/redux/features/service/service.api";
 const times = [
   "01:00",
   "02:00",
@@ -100,12 +99,14 @@ const AddSlot = () => {
       toast.dismiss(toastId);
       if (!res.data?.success) {
         return toast.error("something went wrong while making this request", {
-          description: "Please try agin",
+          description: "Please try again",
         });
       }
       btn.click();
       toast.success("Successfully created service");
     } catch (error) {
+      console.log(error);
+
       toast.dismiss(toastId);
       return toast.error("something went wrong while making this request", {
         description: "Please try agin",
@@ -140,6 +141,7 @@ const AddSlot = () => {
               </SelectContent>
             </Select>
           </div>
+
           <div className="grid gap-2">
             <Label htmlFor="date">Date</Label>
             <Popover>
@@ -200,7 +202,11 @@ const AddSlot = () => {
             </div>
           </div>
           <div className="flex justify-end gap-2">
-            <Button variant="outline">Cancel</Button>
+            <DialogClose asChild>
+              <Button variant="outline" type="button" id="close_service">
+                Cancel
+              </Button>
+            </DialogClose>
             <Button>Save</Button>
           </div>
         </form>

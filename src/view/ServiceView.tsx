@@ -1,4 +1,3 @@
-
 import ServiceCard from "@/components/cards/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -77,7 +76,7 @@ const ServiceView = () => {
 
   return (
     <div className="layout_container mx-auto px-4 py-8 sm:px-6 md:py-12 min-h-[100vh]">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-[250px_1fr]">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-[250px_1fr] ">
         <div className="space-y-6">
           <div>
             <h3 className="mb-2 text-lg font-medium">Search</h3>
@@ -122,7 +121,7 @@ const ServiceView = () => {
           </Button>
         </div>
         <div>
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-6 flex items-center justify-between gap-[20px]">
             <h1 className="text-2xl font-bold">Services</h1>
             <div className="flex items-center gap-4">
               <Select onValueChange={(e) => setSort(e)} value={sort}>
@@ -140,7 +139,7 @@ const ServiceView = () => {
             </div>
           </div>
           {data?.data?.length && data?.data?.length > 0 ? (
-            <div className="griProductResponsive w-full gap-[15px]">
+            <div className="griProductResponsive w-full gap-[15px] justify-items-center sm:justify-items-start">
               <>
                 {data?.data?.map((data: IService, i: number) => (
                   <ServiceCard service={data} key={i + "prodcut"} />

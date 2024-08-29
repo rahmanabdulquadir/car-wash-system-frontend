@@ -72,35 +72,35 @@ export default function BookingManage() {
                 <TableRow key={booking._id}>
                   <TableCell>
                     <div className="font-medium">
-                      {booking.customer.firstName}
+                      {booking?.customer?.firstName}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {booking.customer.email}
+                      {booking?.customer?.email}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {booking.customer.phone}
+                      {booking?.customer?.phone}
                     </div>
                   </TableCell>
-                  <TableCell>{booking.service?.name}</TableCell>
+                  <TableCell>{booking?.service?.name}</TableCell>
                   <TableCell>
-                    {booking.slot?.date} at {booking.slot?.startTime}
+                    {booking?.slot?.date} at {booking?.slot?.startTime}
                   </TableCell>
                   <TableCell>
                     <Badge
                       variant={
-                        booking.payment === "paid" ? "secondary" : "outline"
+                        booking?.payment === "paid" ? "secondary" : "outline"
                       }
                     >
-                      {booking.payment}
+                      {booking?.payment}
                     </Badge>
                   </TableCell>
                   <TableCell>
                     <Badge
                       variant={
-                        booking.status === "confirm" ? "default" : "destructive"
+                        booking?.status === "confirm" ? "default" : "destructive"
                       }
                     >
-                      {booking.status}
+                      {booking?.status}
                     </Badge>
                   </TableCell>
                 </TableRow>

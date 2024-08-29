@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { api } from "@/redux/api/api";
 import { IBooking, IUserBooking } from "@/types/booking";
 interface IQueryOptions {
@@ -9,7 +8,7 @@ interface IQueryOptions {
 }
 const slotsApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    createBooking: builder.mutation<{ data: any }, IBooking>({
+    createBooking: builder.mutation<{ data: any; success: boolean }, IBooking>({
       query: (payload: IBooking) => {
         return {
           url: `/bookings`,
@@ -31,6 +30,22 @@ const slotsApi = api.injectEndpoints({
       },
       providesTags: ["booking"],
     }),
+    getUserAllBookings: builder.query<
+      { data: IUserBooking[]; totalDoc: number },
+      { filter: string }
+    >({
+      query: ({ filter }) => {
+        return {
+          url: `/my-bookings?${filter}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["booking"],
+    }),
   }),
 });
-export const { useCreateBookingMutation, useGetAllBookingsQuery } = slotsApi;
+export const {
+  useCreateBookingMutation,
+  useGetAllBookingsQuery,
+  useGetUserAllBookingsQuery,
+} = slotsApi;

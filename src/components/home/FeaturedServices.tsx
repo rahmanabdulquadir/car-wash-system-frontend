@@ -1,5 +1,7 @@
 import SectionHeading from "@/components/ui/sectionHeading";
-import { serviceData } from "@/mock/service";
+import { serviceData, TFeaturedService } from "@/mock/service";
+import { addServiceToCompare } from "@/redux/features/service/serviceComparison.slice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRightIcon, CheckIcon, ClockIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -17,10 +19,12 @@ const FeaturedServices = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const dispatch = useAppDispatch();
+
+  const { selectedServices } = useAppSelector((state) => state?.comparison);
+
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    if (!api) return;
 
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
@@ -29,6 +33,7 @@ const FeaturedServices = () => {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+
   return (
     <div className="w-full carbon_fiber py-[70px] px-[20px]">
       <SectionHeading
@@ -46,8 +51,8 @@ const FeaturedServices = () => {
         className="mt-[20px]"
       >
         <CarouselContent>
-          {serviceData.map((data) => (
-            <CarouselItem>
+          {serviceData.map((data: TFeaturedService) => (
+            <CarouselItem key={data.name}>
               <div className="flex layout_container !px-[0] mx-auto bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col">
                 <div className="w-full md:w-1/2 relative">
                   <img
@@ -101,8 +106,17 @@ const FeaturedServices = () => {
                       <span className="ml-2 text-gray-700">Window wiping</span>
                     </li>
                   </ul>
-                  <Button className="bg-red-500 text-white px-6 py-3 rounded-full">
-                    Add to Compare
+                  <Button
+                    className={`${
+                      selectedServices.includes(data)
+                        ? "bg-green-500"
+                        : "bg-red-500"
+                    } text-white px-6 py-3 rounded-full`}
+                    onClick={() => dispatch(addServiceToCompare(data))}
+                  >
+                    {selectedServices.includes(data)
+                      ? "Remove from Compare"
+                      : "Add to Compare"}
                     <ArrowRightIcon className="ml-2 h-5 w-5" />
                   </Button>
                 </div>

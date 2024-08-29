@@ -21,41 +21,41 @@ const HeroSection = () => {
   const sliderData = [
     {
       id: 3,
-      image: "/images/banner3.jpg",
-      heading: "Caring service for your car",
-      desc: "Discover top-tier fitness equipment designed to take your workouts to the next level.",
+      image: "https://media.istockphoto.com/id/1489453824/photo/advertising-style-photo-of-a-professional-car-wash-specialist-using-a-high-pressure-washer-to.jpg?s=612x612&w=0&k=20&c=MmBrp9TZBtKnUK5ZJ3su5k8Vta9Zl0pTWAjy-9Am1Rg=",
+      heading: "Car wash services with easy online booking.",
+      desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
     {
       id: 1,
-      image: "/images/banner1.jpg",
-      heading: "Interior & Exterior cleaning",
-      desc: "Discover top-tier fitness equipment designed to take your workouts to the next level.",
+      image: "https://media.istockphoto.com/id/1310978724/photo/the-washing-process-on-a-self-service-car-wash.jpg?s=2048x2048&w=is&k=20&c=i-HFeUACJhh7EZoGTh1_eDMaSRLK93G677v-x1iF7No=",
+      heading: "top-tier services",
+      desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
     {
       id: 2,
-      image: "/images/banner2.jpg",
+      image: "https://media.istockphoto.com/id/1405392820/photo/car-wash-detail-vehicle-during-washing-process.jpg?s=2048x2048&w=is&k=20&c=ESuya_-Mp5Bhcc_n1S3N6VGcvcJyu9vyAX_7rCpjyI4=",
       heading: "Fully automatic machine",
-      desc: "Discover top-tier fitness equipment designed to take your workouts to the next level.",
+      desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
   ];
 
   return (
     <div className="relative w-full overflow-hidden">
       <Carousel
-        className="overflow-hidden h-screen "
+        className="overflow-hidden lg:h-screen h-[400px]"
         plugins={[
           Autoplay({
             delay: 6000,
           }),
         ]}
       >
-        <CarouselContent className="flex">
+        <CarouselContent className="flex text-center">
           {sliderData.map((slider) => (
             <CarouselItem key={slider.id} className="min-w-full">
               <Card className="bg-transparent rounded-none border-none shadow-none">
                 <CardContent className="flex items-center justify-center h-full p-0 w-full">
                   <div
-                    className="relative w-full h-screen overflow-hidden"
+                    className="relative w-full lg:h-screen h-[400px] overflow-hidden"
                     style={{ transition: "0.3s" }}
                   >
                     <div className="overlay" />
@@ -77,14 +77,14 @@ const HeroSection = () => {
                       </p>
                       <div className="center gap-[10px]">
                         <Link
-                          to={"/"}
-                          className="center gap-[5px] px-[40px] py-[12px] rounded-full bg-primaryMat/80 text-white mt-[20px] text-[25px]"
+                          to={"/services"}
+                          className="center gap-[5px] px-[20px] py-[8px] md:px-[40px] md:py-[12px] rounded-full bg-primaryMat/80 text-white mt-[20px] text-[15px] md:text-[25px]"
                         >
                           Book a Slot <MdArrowForwardIos />
                         </Link>
                         <Link
                           to={"/"}
-                          className="center gap-[5px] px-[40px] py-[12px] rounded-full bg-white text-primaryMat mt-[20px] text-[25px]"
+                          className="center gap-[5px] px-[20px] py-[8px] md:px-[40px] md:py-[12px] rounded-full bg-white text-primaryMat mt-[20px] text-[15px] md:text-[25px]"
                         >
                           Explore <MdArrowForwardIos />
                         </Link>

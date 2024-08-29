@@ -20,8 +20,8 @@ module.exports = {
     extend: {
       colors: {
         // ---->
-        primaryTxt: "#253D4E",
-        primaryMat: "#f62727",
+        primaryTxt: "#00000",
+        primaryMat: "#008a60",
         borderColor: "#e4e4ec",
         borderDark: "#9c9cad",
         // ---->

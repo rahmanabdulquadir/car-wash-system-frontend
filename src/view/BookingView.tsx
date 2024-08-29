@@ -22,7 +22,7 @@ const BookingView = () => {
 
   useEffect(() => {
     if (!user || !slot || !service) {
-      return navigate("/");
+      return navigate("/procced-booking");
     }
   }, [user, slot, service, navigate]);
 
@@ -36,12 +36,14 @@ const BookingView = () => {
         customer: user?._id || "",
       };
       const { data } = await createBooking(payload);
+      if (!data?.success as boolean) {
+        return toast.error("something went while accessing this recourse");
+      }
       if (data && data.data?.payment_url) {
         window.location.href = data.data.payment_url;
       }
     } catch (error) {
       console.log(error);
-
       toast.error("something went while accessing this recourse");
     }
   };
@@ -77,14 +79,14 @@ const BookingView = () => {
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <div className="text-lg font-medium">
-                    {data?.data?.service.name}
+                    {data?.data?.service?.name}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    {data?.data?.service.duration} minutes
+                    {data?.data?.service?.duration} minutes
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-primaryMat">
-                  $ {data?.data?.service.price}
+                  $ {data?.data?.service?.price}
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -125,7 +127,7 @@ const BookingView = () => {
                 placeholder="Enter your name"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={data?.data.startTime}
+                value={formik.values.name}
                 className={
                   formik.touched.name && formik.errors.name
                     ? "border-red-500"

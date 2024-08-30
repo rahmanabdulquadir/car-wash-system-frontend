@@ -29,7 +29,7 @@ const userSlice = createSlice({
     setToken(state, action: PayloadAction<string | null>) {
       state.token = action.payload;
     },
-    setState(state, action: PayloadAction<TAuthState>) {
+    setState(_state, action: PayloadAction<TAuthState>) {
       return action.payload;
     },
   },

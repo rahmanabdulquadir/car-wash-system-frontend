@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer
       className="bg-muted py-12 w-full carbon_fiber"
-      style={{ clipPath: "polygon(0 8%, 100% 1%, 100% 100%, 0% 100%)" }}
+      // style={{ clipPath: "polygon(0 8%, 100% 1%, 100% 100%, 0% 100%)" }}
     >
       <div className="container max-w-5xl mx-auto flex flex-col items-center gap-8 text-center">
         <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ const Footer = () => {
             <h4 className="mb-2 text-primaryMat text-[17px] font-[600]">
               Location
             </h4>
-            <p className="text-white">123 Main St, Anytown USA 12345</p>
+            <p className="text-white">100, Dhaka Bangladesh 1217</p>
           </div>
           <div>
             <h4 className="mb-2 text-[17px] font-[600] text-primaryMat">
@@ -83,7 +83,7 @@ const Footer = () => {
           </Link>
         </div>
         <p className="text-xs text-white">
-          &copy; 2024 Acme Inc. All rights reserved.
+          &copy; 2024 Polish Pro Ltd. All rights reserved.
         </p>
       </div>
     </footer>

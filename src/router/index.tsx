@@ -24,20 +24,20 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/admin",
     element: (
-      // <AdminProtectedRoute>
-      //   <AdminDashboardLayout />
-      // </AdminProtectedRoute>
-      <AdminDashboardLayout />
+      <AdminProtectedRoute>
+        <AdminDashboardLayout />
+      </AdminProtectedRoute>
+      // <AdminDashboardLayout />
     ),
     children: [...adminRoutes],
   },
   {
     path: "/dashboard/user",
     element: (
-      // <UserProtectedRoutes>
-      //   <UserDashboardLayout />
-      // </UserProtectedRoutes>
-      <UserDashboardLayout />
+      <UserProtectedRoutes>
+        <UserDashboardLayout />
+      </UserProtectedRoutes>
+      // <UserDashboardLayout />
     ),
     children: [...userRoutes],
   },

@@ -91,13 +91,15 @@ const Login = () => {
         <div className="flex items-center justify-center gap-[50px]">
           <div className="w-[500px] h-[450px] hidden lg:flex">
             <img
-              src={"/images/washer.png"}
+              src={
+                "https://media.istockphoto.com/id/1405392820/photo/car-wash-detail-vehicle-during-washing-process.jpg?s=2048x2048&w=is&k=20&c=ESuya_-Mp5Bhcc_n1S3N6VGcvcJyu9vyAX_7rCpjyI4="
+              }
               alt="auth"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="bg-white max-w-[450px]">
-            <h2 className="font-bold mb-6 text-left text-[35px]">Login</h2>
+            <h2 className="font-bold mb-6 text-center text-[35px]">Login</h2>
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}

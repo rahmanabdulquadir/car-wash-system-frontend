@@ -80,7 +80,7 @@ const Register = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-[15px] py-[20px]">
       <div className="bg-white p-[25px]  max-w-xl shadow-md rounded-[12px]">
-        <h2 className=" font-bold mb-6 text-left text-[35px]">
+        <h2 className=" font-bold mb-6 text-center text-[35px]">
           Create an Account
         </h2>
         <Formik

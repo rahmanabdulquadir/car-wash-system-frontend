@@ -34,8 +34,17 @@ const FeaturedServices = () => {
     });
   }, [api]);
 
+  const features = [
+    "Seats washing",
+    "Vacuum cleaning",
+    "Interior wet cleaning",
+    "Window wiping",
+    "Tire cleaning",
+    "Wax coating",
+  ];
+
   return (
-    <div className="w-full carbon_fiber pt-[70px] px-[20px]">
+    <div className="w-full carbon_fiber pt-[60px] px-[20px]">
       <SectionHeading
         description="Top 6 populer offer to chose from use. Best featured services"
         heading="Our top featured services"
@@ -75,43 +84,36 @@ const FeaturedServices = () => {
                     </CarouselPrevious>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2 p-8">
-                  <h2 className="text-2xl font-bold mb-4">{data.name}</h2>
-                  <div className="flex items-center mb-4">
-                    <ClockIcon className="h-5 w-5 text-red-500" />
-                    <span className="ml-2 text-gray-700">
-                      {data.duration} min
-                    </span>
+                <div className="w-full md:w-1/2 p-8 transition-transform transform hover:scale-105 hover:shadow-xl bg-white rounded-lg shadow-md border border-gray-200">
+                  <h2 className="text-3xl font-bold mb-4 text-gray-800 hover:text-green-500 transition-colors duration-300">
+                    {data.name}
+                  </h2>
+                  <div className="flex items-center mb-4 text-gray-700">
+                    <ClockIcon className="h-6 w-6 text-green-600" />
+                    <span className="ml-2 text-lg">{data.duration} min</span>
                   </div>
                   <p className="text-gray-600 mb-6">{data.description}</p>
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-center">
-                      <CheckIcon className="h-5 w-5 text-green-500" />
-                      <span className="ml-2 text-gray-700">Seats washing</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckIcon className="h-5 w-5 text-green-500" />
-                      <span className="ml-2 text-gray-700">
-                        Vacuum cleaning
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckIcon className="h-5 w-5 text-green-500" />
-                      <span className="ml-2 text-gray-700">
-                        Interior wet cleaning
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckIcon className="h-5 w-5 text-green-500" />
-                      <span className="ml-2 text-gray-700">Window wiping</span>
-                    </li>
+                  <ul className="space-y-3 mb-6">
+                    {features.map((feature, index) => (
+                      <li
+                        key={index}
+                        className="flex items-center text-gray-700"
+                      >
+                        <CheckIcon className="h-5 w-5 text-green-500" />
+                        <span className="ml-2">{feature}</span>
+                      </li>
+                    ))}
                   </ul>
+
+                  <h2 className="ml-4 py-3 font-bold text-3xl text-green-600">
+                    {data.price}$
+                  </h2>
                   <Button
                     className={`${
                       selectedServices.includes(data)
                         ? "bg-green-500"
                         : "bg-red-500"
-                    } text-white px-6 py-3 rounded-full`}
+                    } text-white px-6 py-3 rounded-full transition-colors duration-300 hover:bg-opacity-90 flex items-center justify-center`}
                     onClick={() => dispatch(addServiceToCompare(data))}
                   >
                     {selectedServices.includes(data)

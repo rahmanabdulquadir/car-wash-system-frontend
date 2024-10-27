@@ -12,11 +12,14 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import * as Yup from "yup";
+
 const initialValues = {
   email: "",
   password: "",
 };
+
 type TFormValues = typeof initialValues;
+
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("* Invalid email address")
@@ -28,7 +31,6 @@ const Login = () => {
   const [login] = useLoginUserMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const redirect = Cookies.get("redirect");
 
   const handleLogin = async (values: TFormValues) => {
@@ -36,19 +38,19 @@ const Login = () => {
     try {
       const { data, error: err } = await login(values);
       const error: any = err;
+
       if (error) {
         if (error.status === 401) {
-          return toast.error("password didn;t matched", {
-            description: "try to remember your password and try again",
+          return toast.error("Password didn't match", {
+            description: "Try to remember your password and try again",
           });
         }
         if (error.status === 404) {
           return toast.error("Invalid email address", {
-            description: "Enter a valid email adress.",
+            description: "Enter a valid email address.",
           });
         }
-
-        return toast.error(error.data?.message || "Unknown error occureds");
+        return toast.error(error.data?.message || "Unknown error occurred");
       }
 
       if (!data) {
@@ -105,7 +107,7 @@ const Login = () => {
               validationSchema={validationSchema}
               onSubmit={handleLogin}
             >
-              {({ isSubmitting }) => (
+              {({ isSubmitting, setFieldValue }) => (
                 <Form>
                   <div className="mb-4">
                     <label className="block text-primaryTxt text-[18px] font-[600]">
@@ -138,6 +140,29 @@ const Login = () => {
                     />
                   </div>
 
+                  <div className="flex justify-between mb-4">
+                    <button
+                      type="button"
+                      className="w-fit px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300"
+                      onClick={() => {
+                        setFieldValue("email", "admin@gmail.com");
+                        setFieldValue("password", "admin123");
+                      }}
+                    >
+                      Login As Admin
+                    </button>
+                    <button
+                      type="button"
+                      className="w-fit px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300"
+                      onClick={() => {
+                        setFieldValue("email", "user@example.com");
+                        setFieldValue("password", "user123");
+                      }}
+                    >
+                      Login As User
+                    </button>
+                  </div>
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -159,12 +184,12 @@ const Login = () => {
                 </Link>
               </p>
               <p className="text-gray-700">
-                Dont remeber our password?
+                Don’t remember your password?
                 <Link
                   to="/forgot-password"
                   className="text-primaryMat hover:underline"
                 >
-                  forgot password
+                  Forgot Password
                 </Link>
               </p>
             </div>

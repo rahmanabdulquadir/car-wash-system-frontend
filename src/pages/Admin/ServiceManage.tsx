@@ -50,7 +50,7 @@ const ServiceManage = () => {
 
   return (
     <div className="w-full bg-background">
-      <div className="my-6 px-6">
+      <div className=" px-6">
         <h1 className="text-2xl font-bold">Service Management</h1>
         <p className="text-muted-foreground">Manage your services</p>
       </div>

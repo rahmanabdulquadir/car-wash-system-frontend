@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className="mx-auto layout_container">
           <div className="flex  items-center justify-between py-2">
             <Link to="/" className="flex items-center">
-              {/* <img src="" className="w-[100px]" /> */}
+              <img src="/images/polish_pro.png" className="w-[100px]" />
             </Link>
             <div className="center w-fit gap-[15px] pt-[0] pb-[10px]">
               <div className="hidden lg:flex gap-8">
@@ -117,7 +117,7 @@ const Navbar = () => {
               style={{ transition: "0.3s" }}
             >
               <Link to="/" className="flex items-center">
-                <img src="/images/logo.png" className="w-[120px]" />
+                <img src="/images/logo.png" className="w-[120px] " />
               </Link>
               <div className="w-full flex flex-col mt-[20px]">
                 {navLinks.map(({ href, lebel }) => (

@@ -155,8 +155,8 @@ const Login = () => {
                       type="button"
                       className="w-fit px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300"
                       onClick={() => {
-                        setFieldValue("email", "user@example.com");
-                        setFieldValue("password", "user123");
+                        setFieldValue("email", "rahman@gmail.com");
+                        setFieldValue("password", "rahman123");
                       }}
                     >
                       Login As User

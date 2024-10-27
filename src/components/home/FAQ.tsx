@@ -47,7 +47,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-green-50 via-gray-50 to-green-50 py-16">
+    <section className="bg-gray-100 py-16">
       <div className="max-w-3xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-transparent bg-clip-text text-green-600 mb-10">
           Frequently Asked Questions

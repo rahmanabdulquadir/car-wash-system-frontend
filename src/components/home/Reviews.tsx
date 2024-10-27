@@ -158,10 +158,10 @@ export default function Component() {
           {data?.data?.slice(0, 2)?.map((review, i) => (
             <Review
               key={i + "rev"}
-              name={`${review.user?.firstName} ${review.user.lastName}`}
-              rating={review.rating}
-              date={review.createdAt}
-              comment={review.comment}
+              name={`${review?.user?.firstName} ${review?.user?.lastName}`}
+              rating={review?.rating}
+              date={review?.createdAt}
+              comment={review?.comment}
             />
           ))}
           <Button variant="link" className="mt-4 w-full text-primary">

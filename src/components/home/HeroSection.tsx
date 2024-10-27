@@ -22,21 +22,21 @@ const HeroSection = () => {
     {
       id: 3,
       image:
-        "https://media.istockphoto.com/id/1489453824/photo/advertising-style-photo-of-a-professional-car-wash-specialist-using-a-high-pressure-washer-to.jpg?s=612x612&w=0&k=20&c=MmBrp9TZBtKnUK5ZJ3su5k8Vta9Zl0pTWAjy-9Am1Rg=",
+        "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       heading: "Car wash services with easy online booking.",
       desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
     {
       id: 1,
       image:
-        "https://media.istockphoto.com/id/1310978724/photo/the-washing-process-on-a-self-service-car-wash.jpg?s=2048x2048&w=is&k=20&c=i-HFeUACJhh7EZoGTh1_eDMaSRLK93G677v-x1iF7No=",
+        "https://plus.unsplash.com/premium_photo-1661443869623-ec8453ac6d15?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       heading: "top-tier services",
       desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
     {
       id: 2,
       image:
-        "https://media.istockphoto.com/id/1405392820/photo/car-wash-detail-vehicle-during-washing-process.jpg?s=2048x2048&w=is&k=20&c=ESuya_-Mp5Bhcc_n1S3N6VGcvcJyu9vyAX_7rCpjyI4=",
+        "https://plus.unsplash.com/premium_photo-1661443423201-e9ccb6de3095?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       heading: "Fully automatic machine",
       desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
@@ -45,7 +45,7 @@ const HeroSection = () => {
   return (
     <div className="relative w-full overflow-hidden">
       <Carousel
-        className="overflow-hidden lg:h-[80vh] flex items-center"
+        className="overflow-hidden lg:h-[70vh] flex items-center"
         plugins={[
           Autoplay({
             delay: 6000,
@@ -58,7 +58,7 @@ const HeroSection = () => {
               <Card className="bg-transparent rounded-none border-none shadow-none">
                 <CardContent className="flex items-center justify-center h-full p-0 w-full">
                   <div
-                    className="relative w-full lg:h-screen h-[400px] overflow-hidden"
+                    className="relative w-full lg:h-[70vh] h-[600px] overflow-hidden"
                     style={{ transition: "0.3s" }}
                   >
                     <div className="overlay" />
@@ -86,7 +86,7 @@ const HeroSection = () => {
                           Book a Slot <MdArrowForwardIos />
                         </Link>
                         <Link
-                          to={"/"}
+                          to={"/services"}
                           className="center gap-[5px] px-[20px] py-[8px] md:px-[40px] md:py-[12px] rounded-full bg-white text-primaryMat mt-[20px] text-[15px] md:text-[25px]"
                         >
                           Explore <MdArrowForwardIos />

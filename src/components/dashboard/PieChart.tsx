@@ -32,11 +32,11 @@ const chartConfig = {
     label: "Visitors",
   },
   chrome: {
-    label: "Tyre Changing",
+    label: "Exterior Cleanup",
     color: "#e62525",
   },
   safari: {
-    label: "Deep Clean",
+    label: "Interior Cleanup",
     color: "#000000",
   },
   firefox: {
@@ -44,7 +44,7 @@ const chartConfig = {
     color: "#e62525",
   },
   edge: {
-    label: "Edge",
+    label: "Tyre Cleanup",
     color: "#000000",
   },
   other: {
@@ -61,8 +61,8 @@ function Component() {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart - Donut with Text</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Polish Pro - Pie Chart</CardTitle>
+        <CardDescription>January - November 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
@@ -96,7 +96,7 @@ function Component() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {totalVisitors.toLocaleString()}
+                          {8}
                         </tspan>
                         <tspan
                           x={viewBox.cx}

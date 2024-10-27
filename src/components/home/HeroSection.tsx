@@ -21,19 +21,22 @@ const HeroSection = () => {
   const sliderData = [
     {
       id: 3,
-      image: "https://media.istockphoto.com/id/1489453824/photo/advertising-style-photo-of-a-professional-car-wash-specialist-using-a-high-pressure-washer-to.jpg?s=612x612&w=0&k=20&c=MmBrp9TZBtKnUK5ZJ3su5k8Vta9Zl0pTWAjy-9Am1Rg=",
+      image:
+        "https://media.istockphoto.com/id/1489453824/photo/advertising-style-photo-of-a-professional-car-wash-specialist-using-a-high-pressure-washer-to.jpg?s=612x612&w=0&k=20&c=MmBrp9TZBtKnUK5ZJ3su5k8Vta9Zl0pTWAjy-9Am1Rg=",
       heading: "Car wash services with easy online booking.",
       desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
     {
       id: 1,
-      image: "https://media.istockphoto.com/id/1310978724/photo/the-washing-process-on-a-self-service-car-wash.jpg?s=2048x2048&w=is&k=20&c=i-HFeUACJhh7EZoGTh1_eDMaSRLK93G677v-x1iF7No=",
+      image:
+        "https://media.istockphoto.com/id/1310978724/photo/the-washing-process-on-a-self-service-car-wash.jpg?s=2048x2048&w=is&k=20&c=i-HFeUACJhh7EZoGTh1_eDMaSRLK93G677v-x1iF7No=",
       heading: "top-tier services",
       desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
     {
       id: 2,
-      image: "https://media.istockphoto.com/id/1405392820/photo/car-wash-detail-vehicle-during-washing-process.jpg?s=2048x2048&w=is&k=20&c=ESuya_-Mp5Bhcc_n1S3N6VGcvcJyu9vyAX_7rCpjyI4=",
+      image:
+        "https://media.istockphoto.com/id/1405392820/photo/car-wash-detail-vehicle-during-washing-process.jpg?s=2048x2048&w=is&k=20&c=ESuya_-Mp5Bhcc_n1S3N6VGcvcJyu9vyAX_7rCpjyI4=",
       heading: "Fully automatic machine",
       desc: "At Polish Pro, we revolutionize car care with seamless online booking, top-tier services, and a commitment to making your vehicle shine like new—every time.",
     },
@@ -42,7 +45,7 @@ const HeroSection = () => {
   return (
     <div className="relative w-full overflow-hidden">
       <Carousel
-        className="overflow-hidden lg:h-screen h-[400px]"
+        className="overflow-hidden lg:h-[80vh] flex items-center"
         plugins={[
           Autoplay({
             delay: 6000,

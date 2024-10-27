@@ -35,7 +35,7 @@ const FeaturedServices = () => {
   }, [api]);
 
   return (
-    <div className="w-full carbon_fiber py-[70px] px-[20px]">
+    <div className="w-full carbon_fiber pt-[70px] px-[20px]">
       <SectionHeading
         description="Top 6 populer offer to chose from use. Best featured services"
         heading="Our top featured services"
@@ -53,7 +53,7 @@ const FeaturedServices = () => {
         <CarouselContent>
           {serviceData.map((data: TFeaturedService) => (
             <CarouselItem key={data.name}>
-              <div className="flex layout_container !px-[0] mx-auto bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col">
+              <div className="flex container !px-[0] mx-auto bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col">
                 <div className="w-full md:w-1/2 relative">
                   <img
                     src={data.image}

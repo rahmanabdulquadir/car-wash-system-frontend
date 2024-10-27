@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "sonner";
 
 const FeedbackPage: React.FC = () => {
   return (
@@ -67,7 +68,11 @@ const FeedbackPage: React.FC = () => {
         <div className="flex items-center justify-end">
           <button
             type="submit"
-            className="inline-flex items-center px-6 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            onClick={(e) => {
+              e.preventDefault()
+              toast.success("Thank you for your feedback!")
+            }}
+            className="inline-flex items-center px-6 py-2 bg-black border border-transparent rounded-md font-semibold text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
           >
             Submit Feedback
           </button>

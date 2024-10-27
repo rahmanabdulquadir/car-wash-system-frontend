@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 "use client";
 
 import { logout } from "@/redux/features/auth/auth.slice";

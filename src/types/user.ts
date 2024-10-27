@@ -1,5 +1,6 @@
 export type TRole = "admin" | "user";
 export type TUser = {
+  [x: string]: number;
   firstName: string;
   lastName: string;
   email: string;

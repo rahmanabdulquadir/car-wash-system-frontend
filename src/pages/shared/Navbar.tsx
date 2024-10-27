@@ -101,7 +101,7 @@ const Navbar = () => {
               <UpcomingSlotCountdown />
               <button
                 onClick={() => setShowSidebar(!showSidebar)}
-                className="md:hidden flex menuBTn"
+                className="md:hidden flex menuBTn text-white"
               >
                 {showSidebar ? <X /> : <Menu />}
               </button>

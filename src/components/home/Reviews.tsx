@@ -69,7 +69,7 @@ const Review = ({
     addSuffix: true,
   });
   return (
-    <div className="py-6 border-t border-border">
+    <div className="py-6 border-t border-border ">
       <div className="flex items-center gap-4 mb-2">
         <Avatar className="w-10 h-10">
           <AvatarImage
@@ -140,7 +140,7 @@ export default function Component() {
   const avgRating = (rating / totalCount).toFixed(2);
   return (
     <section
-      className="layout_container py-[40px] flex md:flex-row flex-col gap-[20px]"
+      className="container py-[40px] flex md:flex-row flex-col gap-[20px] bg-gray-100"
       id="review"
     >
       <Card className="w-full">

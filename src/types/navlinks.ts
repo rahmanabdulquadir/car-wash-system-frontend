@@ -29,4 +29,9 @@ export const adminLinks: NavItem[] = [
     Icon: CiUser,
     title: "Manage Bookings",
   },
+  {
+    href: "/dashboard/admin/manage-bookings",
+    Icon: CiUser,
+    title: "Manage Workers",
+  },
 ];

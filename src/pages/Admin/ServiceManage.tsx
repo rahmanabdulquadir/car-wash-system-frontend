@@ -1,4 +1,3 @@
-
 import Addservice from "@/components/serviceManageMent/Addservice";
 import DeleteService from "@/components/serviceManageMent/DeleteService";
 import EditService from "@/components/serviceManageMent/EditService";
@@ -34,6 +33,8 @@ import { trimText } from "@/utils/trimText";
 import { formatDistanceToNow } from "date-fns";
 import { ListOrderedIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
+import ChartComponent from "../../components/dashboard/ChartComponent";
+import PieChart from "../../components/dashboard/PieChart";
 
 const ServiceManage = () => {
   const [limit, setLimit] = useState(10);
@@ -187,6 +188,13 @@ const ServiceManage = () => {
             ))}
           </PaginationContent>
         </Pagination>
+      </div>
+        <h1 className="text-2xl font-bold text-center">
+          Most Taken Services By Customers
+        </h1>
+      <div className="flex justify-around items-center">
+        <ChartComponent />
+        <PieChart />
       </div>
     </div>
   );

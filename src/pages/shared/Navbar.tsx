@@ -6,7 +6,6 @@ import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import UpcomingSlotCountdown from "./UpcomingSlotCountdown";
 
-
 const navLinks = [
   {
     lebel: "Home",
@@ -86,7 +85,7 @@ const Navbar = () => {
               {user ? (
                 <Link
                   to={`/dashboard/${user.role == "admin" ? "admin" : "user"}`}
-                  className="text-[15px] text-white bg-primaryMat px-[10px] py-[5px] center rounded-full gap-[3px]"
+                  className="text-sm text-white bg-primaryMat px-[10px] py-[5px] center rounded-full gap-[3px]"
                 >
                   <CiUser /> Dashboard
                 </Link>

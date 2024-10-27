@@ -1,4 +1,5 @@
 import CustomerServiceForm from "@/pages/User/CustomerServiceForm";
+import FeedbackPage from "@/pages/User/FeedBackPage";
 import MyBookings from "@/pages/User/MyBookings";
 import Profile from "@/pages/User/Profile";
 import UpdateProfileInfo from "@/pages/User/UpdateProfileInfo";
@@ -26,7 +27,7 @@ export const userRoutes = [
   },
   {
     index: true,
-    path: "Upcoming Services",
-    element: <MyBookings />,
+    path: "feedback",
+    element: <FeedbackPage/> ,
   }
 ];

@@ -5,7 +5,7 @@ import { useAppSelector } from "@/redux/hooks";
 import Cookies from "js-cookie";
 import { CiLogout, CiUser } from "react-icons/ci";
 import { FaArrowLeft } from "react-icons/fa";
-import { RiCustomerServiceLine, RiLockPasswordLine, RiUserSettingsLine } from "react-icons/ri";
+import { RiCustomerServiceLine, RiLockPasswordLine, RiPencilRuler2Line, RiUserSettingsLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -29,6 +29,11 @@ export const userProfileLinks = [
     href: "/dashboard/user/customer-service",
     label: "Customer Service",
     Icon: RiCustomerServiceLine,
+  },
+  {
+    href: "/dashboard/user/feedback",
+    label: "Feedback",
+    Icon: RiPencilRuler2Line,
   },
 ];
 

@@ -2,6 +2,7 @@ import BookingManage from "@/pages/Admin/BookingManage";
 import ManageUser from "@/pages/Admin/ManageUser";
 import ServiceManage from "@/pages/Admin/ServiceManage";
 import SlotManage from "@/pages/Admin/SlotManage";
+import TeamSection from "@/pages/Admin/TeamSection";
 
 export const adminRoutes = [
   {
@@ -23,5 +24,10 @@ export const adminRoutes = [
     index: true,
     path: "manage-bookings",
     element: <BookingManage />,
+  },
+  {
+    index: true,
+    path: "polish-pro-team",
+    element: <TeamSection/>,
   },
 ];

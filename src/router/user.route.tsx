@@ -18,4 +18,14 @@ export const userRoutes = [
     path: "my-bookings",
     element: <MyBookings />,
   },
+  {
+    index: true,
+    path: "customer-service",
+    element: <MyBookings />,
+  },
+  {
+    index: true,
+    path: "Upcoming Services",
+    element: <MyBookings />,
+  }
 ];

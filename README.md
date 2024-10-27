@@ -4,6 +4,8 @@
 ### Backend Live URL: https://car-wash-booking-system-backend.vercel.app/
 ### Backend Github: https://github.com/rahmanabdulquadir/car-wash-system-backend
 
+
+## Credentials - email: mradmin@gmail.com   password: admin123
 ## Introduction
 
 This car wash and service booking application enables users to explore various car-related services and book available time slots. Users can easily find the service they need, select a convenient slot, and confirm their booking. Administrators have the ability to manage user roles, create and customize booking slots based on the service type, and oversee all bookings to ensure efficient operation.

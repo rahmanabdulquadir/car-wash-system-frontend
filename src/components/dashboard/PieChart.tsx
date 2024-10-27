@@ -96,7 +96,7 @@ function Component() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {8}
+                          {totalVisitors}
                         </tspan>
                         <tspan
                           x={viewBox.cx}

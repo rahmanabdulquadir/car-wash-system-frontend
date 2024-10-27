@@ -33,8 +33,13 @@ const Profile = () => {
             </span>
           </Link>
           <div>
-            <h3 className="text-2xl font-semibold">{user?.firstName} {user?.lastName}</h3>
-            <p className="text-gray-500">Member since: {format(new Date(user?.createdAt || "12-30-2024"), "MMM dd, yyy")}</p>
+            <h3 className="text-2xl font-semibold">
+              {user?.firstName} {user?.lastName}
+            </h3>
+            <p className="text-gray-500">
+              Member since:{" "}
+              {format(new Date(user?.createdAt || "12-30-2024"), "MMM dd, yyy")}
+            </p>
           </div>
         </div>
         <Link
@@ -48,24 +53,42 @@ const Profile = () => {
       {/* User Details */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-4 rounded-lg shadow-md">
-          <h4 className="text-lg font-semibold text-gray-700 mb-2">Contact Information</h4>
-          <p className="text-gray-600"><span className="font-medium">Email:</span> {user?.email}</p>
-          <p className="text-gray-600 mt-1"><span className="font-medium">Phone:</span> {user?.phone || "N/A"}</p>
-          <p className="text-gray-600 mt-1"><span className="font-medium">Location:</span> {user?.location || "N/A"}</p>
+          <h4 className="text-lg font-semibold text-gray-700 mb-2">
+            Contact Information
+          </h4>
+          <p className="text-gray-600">
+            <span className="font-medium">Email:</span> {user?.email}
+          </p>
+          <p className="text-gray-600 mt-1">
+            <span className="font-medium">Phone:</span> {user?.phone || "N/A"}
+          </p>
+          <p className="text-gray-600 mt-1">
+            <span className="font-medium">Location:</span> {"N/A"}
+          </p>
         </div>
 
         <div className="bg-white p-4 rounded-lg shadow-md">
-          <h4 className="text-lg font-semibold text-gray-700 mb-2">Statistics</h4>
-          <p className="text-gray-600"><FaStar className="inline text-yellow-500" /> Rating: {user?.rating || "N/A"}</p>
-          <p className="text-gray-600 mt-1"><FaClock className="inline text-blue-500" /> Total Bookings: {user?.totalBookings || 0}</p>
+          <h4 className="text-lg font-semibold text-gray-700 mb-2">
+            Statistics
+          </h4>
+          <p className="text-gray-600">
+            <FaStar className="inline text-yellow-500" /> Rating: {"N/A"}
+          </p>
+          <p className="text-gray-600 mt-1">
+            <FaClock className="inline text-blue-500" /> Total Bookings: {0}
+          </p>
         </div>
       </div>
 
       {/* Recent Activity */}
       <div className="mt-8">
-        <h4 className="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h4>
+        <h4 className="text-xl font-semibold text-gray-800 mb-4">
+          Recent Activity
+        </h4>
         <div className="bg-white p-4 rounded-lg shadow-md space-y-4">
-          <p className="text-gray-600">- Booked a service on {format(new Date(), "MMM dd, yyy")}</p>
+          <p className="text-gray-600">
+            - Booked a service on {format(new Date(), "MMM dd, yyy")}
+          </p>
           <p className="text-gray-600">- Updated profile picture</p>
           <p className="text-gray-600">- Submitted a feedback</p>
         </div>

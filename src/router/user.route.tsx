@@ -1,5 +1,6 @@
 import CustomerServiceForm from "@/pages/User/CustomerServiceForm";
-import FeedbackPage from "@/pages/User/FeedBackPage";
+import FeedbackPage from "@/pages/User/FeedbackPage";
+
 import MyBookings from "@/pages/User/MyBookings";
 import Profile from "@/pages/User/Profile";
 import UpdateProfileInfo from "@/pages/User/UpdateProfileInfo";

@@ -5,7 +5,7 @@ import { useAppSelector } from "@/redux/hooks";
 import Cookies from "js-cookie";
 import { CiLogout, CiUser } from "react-icons/ci";
 import { FaArrowLeft } from "react-icons/fa";
-import { RiLockPasswordLine, RiUserSettingsLine } from "react-icons/ri";
+import { RiCustomerServiceLine, RiLockPasswordLine, RiUserSettingsLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -24,6 +24,11 @@ export const userProfileLinks = [
     href: "/dashboard/user/my-bookings",
     label: "My Bookings",
     Icon: RiLockPasswordLine,
+  },
+  {
+    href: "/dashboard/user/customer-service",
+    label: "Customer Service",
+    Icon: RiCustomerServiceLine,
   },
 ];
 

@@ -1,3 +1,4 @@
+import CustomerServiceForm from "@/pages/User/CustomerServiceForm";
 import MyBookings from "@/pages/User/MyBookings";
 import Profile from "@/pages/User/Profile";
 import UpdateProfileInfo from "@/pages/User/UpdateProfileInfo";
@@ -21,7 +22,7 @@ export const userRoutes = [
   {
     index: true,
     path: "customer-service",
-    element: <MyBookings />,
+    element: <CustomerServiceForm/>,
   },
   {
     index: true,

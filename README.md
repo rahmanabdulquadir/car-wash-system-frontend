@@ -1,8 +1,8 @@
 # Polish Pro
 
-## Live link - [Polish Pro](car-wash-booking-system-frontend.vercel.app)
-
-## 🔗 Server side repository - [car-wash-backend](https://github.com/rahmanabdulquadir/car-wash-system-backend)
+### Frontend Live URL: https://car-wash-booking-system-frontend.vercel.app/
+### Backend Live URL: https://car-wash-booking-system-backend.vercel.app/
+### Backend Github: https://github.com/rahmanabdulquadir/car-wash-system-backend
 
 ## Introduction
 

@@ -8,13 +8,13 @@ import {
 } from "@/redux/features/review/review.api";
 import { useAppSelector } from "@/redux/hooks";
 import { IReview } from "@/types/review";
-
 import { formatDistanceToNow } from "date-fns";
 import { Star } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { GoStar, GoStarFill } from "react-icons/go";
+import { MdArrowRight } from "react-icons/md";
 import Rating from "react-rating";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
@@ -41,7 +41,7 @@ const RatingBar = ({ data }: { data: IReview[] }) => {
   );
 };
 
-const StarRating = ({ rating }: { rating: number }) => (
+export const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex">
     {[1, 2, 3, 4, 5].map((star) => (
       <Star
@@ -69,7 +69,7 @@ const Review = ({
     addSuffix: true,
   });
   return (
-    <div className="py-6 border-t border-border ">
+    <div className="py-6 border-t border-border">
       <div className="flex items-center gap-4 mb-2">
         <Avatar className="w-10 h-10">
           <AvatarImage
@@ -98,7 +98,7 @@ const Review = ({
 
 export default function Component() {
   const [review, setReview] = useState<number>(1);
-  const { data } = useGetReviewsQuery(200);
+  const { data } = useGetReviewsQuery({ limit: 99999 });
   const { user } = useAppSelector((state) => state.auth);
 
   const [createReview] = useCreateReviewMutation();
@@ -140,7 +140,7 @@ export default function Component() {
   const avgRating = (rating / totalCount).toFixed(2);
   return (
     <section
-      className="container py-[40px] flex md:flex-row flex-col gap-[20px] bg-gray-100"
+      className="layout_container py-[40px] flex md:flex-row flex-col gap-[20px]"
       id="review"
     >
       <Card className="w-full">
@@ -158,15 +158,18 @@ export default function Component() {
           {data?.data?.slice(0, 2)?.map((review, i) => (
             <Review
               key={i + "rev"}
-              name={`${review?.user?.firstName} ${review?.user?.lastName}`}
-              rating={review?.rating}
-              date={review?.createdAt}
-              comment={review?.comment}
+              name={`${review.user?.firstName} ${review.user.lastName}`}
+              rating={review.rating}
+              date={review.createdAt}
+              comment={review.comment}
             />
           ))}
-          <Button variant="link" className="mt-4 w-full text-primary">
-            Read all reviews
-          </Button>
+          <Link
+            to={"/testimonials"}
+            className="mt-4 mx-auto text-primary text-center hover:underline center gap-[5px]"
+          >
+            Read all reviews <MdArrowRight />
+          </Link>
         </CardContent>
       </Card>
       <div className="bg-muted px-6 py-8 sm:px-10 sm:py-10 md:w-[40%] w-full">

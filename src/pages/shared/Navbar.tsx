@@ -16,8 +16,8 @@ const navLinks = [
     href: "/services",
   },
   {
-    lebel: "Booking",
-    href: "/procced-booking",
+    lebel: "Testimonials",
+    href: "/testimonials",
   },
 ];
 
@@ -60,13 +60,13 @@ const Navbar = () => {
 
   return (
     <header className=" bg-primaryMat/70 w-full">
-      <div className="nav_shape sticky top-0 z-20 border-b-primaryMat border-b-[1px]">
+      <div className="nav_shape sticky top-0 z-20 border-b-primaryMat border-b-[1px] ">
         <div className="mx-auto layout_container">
-          <div className="flex  items-center justify-between py-2">
+          <div className="flex  items-center justify-between">
             <Link to="/" className="flex items-center">
-              <img src="/images/polish_pro.png" className="w-[100px]" />
+              <img src="/images/polish_pro.png" className="w-[80px]" />
             </Link>
-            <div className="center w-fit gap-[15px] pt-[0] pb-[10px]">
+            <div className="center w-fit gap-[15px] pt-[0] ">
               <div className="hidden lg:flex gap-8">
                 {navLinks.map(({ href, lebel }, i) => (
                   <Link

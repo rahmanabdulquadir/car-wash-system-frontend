@@ -11,9 +11,12 @@ const reviewAPi = api.injectEndpoints({
       }),
       invalidatesTags: ["review"],
     }),
-    getReviews: builder.query<{ data: IReview[] }, number>({
-      query: (limit?: number) => ({
-        url: `/review/get?limit=${limit || 2}`,
+    getReviews: builder.query<
+      { data: IReview[]; totalDoc: number },
+      { limit?: number; page?: number }
+    >({
+      query: ({ limit, page }) => ({
+        url: `/review/get?limit=${limit || 2}page=${page || 1}`,
         method: "GET",
       }),
       providesTags: ["review"],

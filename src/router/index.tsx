@@ -27,7 +27,6 @@ const router = createBrowserRouter([
       <AdminProtectedRoute>
         <AdminDashboardLayout />
       </AdminProtectedRoute>
-      // <AdminDashboardLayout />
     ),
     children: [...adminRoutes],
   },
@@ -37,7 +36,6 @@ const router = createBrowserRouter([
       <UserProtectedRoutes>
         <UserDashboardLayout />
       </UserProtectedRoutes>
-      // <UserDashboardLayout />
     ),
     children: [...userRoutes],
   },
